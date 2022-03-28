@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/header :: imports"></div>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <!-- section title -->
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h3 class="title">New Bottles</h3>
+                </div>
+            </div>
+            <!-- /section title -->
+
+            <!-- Products tab & slick -->
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="products-tabs">
+                        <!-- tab -->
+                        <div class="tab-pane active" id="tab1">
+                            <div class="products-slick" data-nav="#slick-nav-1">
+                                <!-- product -->
+
+                                <div class="product" th:each="bottle : ${bottles}">
+                                    <form method="POST" th:action="@{/cart/add(origin='')}"
+                                          th:object="${addToCartForm}">
+                                        <div class="product-img">
+                                            <img alt="" class="product-img-height"
+                                                 th:src="${bottle.bottleBeverage.beveragePic}">
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Bottles</p>
+                                            <h3 class="product-name"><a href="#">[[${bottle.bottleBeverage.name}]] </a>
+                                            </h3>
+                                            <h4 class="product-price">€[[${bottle.bottleBeverage.beveragePrice}]] </h4>
+                                            <div class="product-available">
+                                                In Stock: [[${bottle.bottleInStock}]]
+                                                Volume: [[${bottle.volume}]]
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn" type="submit">
+                                                <i class="fa fa-shopping-cart"></i>Add to Cart
+                                            </button>
+                                        </div>
+                                        <input name="beverageId" th:value="${bottle.bottleBeverage.beverageId}"
+                                               type="hidden"/>
+                                    </form>
+                                </div>
+
+                                <!-- /product -->
+                            </div>
+                            <div class="products-slick-nav" id="slick-nav-1"></div>
+                        </div>
+                        <!-- /tab -->
+                    </div>
+                </div>
+            </div>
+            <!-- Products tab & slick -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <!-- section title -->
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h3 class="title">New Crates</h3>
+                </div>
+            </div>
+            <!-- /section title -->
+
+            <!-- Products tab & slick -->
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="products-tabs">
+                        <!-- tab -->
+                        <div class="tab-pane fade in active" id="tab2">
+                            <div class="products-slick" data-nav="#slick-nav-2">
+                                <!-- product -->
+
+                                <div class="product" th:each="crate : ${crates}">
+                                    <form method="POST" th:action="@{/cart/add(origin='')}"
+                                          th:object="${addToCartForm}">
+                                        <div class="product-img">
+                                            <img alt="" class="product-img-height"
+                                                 th:src="${crate.crateBeverage.beveragePic}">
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Crates</p>
+                                            <h3 class="product-name"><a href="#">[[${crate.crateBeverage.name}]] </a>
+                                            </h3>
+                                            <h4 class="product-price">€[[${crate.crateBeverage.beveragePrice}]]</h4>
+                                            <div class="product-available">
+                                                In Stock: [[${crate.cratesInStock}]]
+                                                Volume: [[${crate.bottle.volume}]]
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn" type="submit">
+                                                <i class="fa fa-shopping-cart"></i>Add to Cart
+                                            </button>
+                                        </div>
+                                        <input name="beverageId" th:value="${crate.crateBeverage.beverageId}"
+                                               type="hidden"/>
+                                    </form>
+                                </div>
+
+                                <!-- /product -->
+                            </div>
+                            <div class="products-slick-nav" id="slick-nav-2"></div>
+                        </div>
+                        <!-- /tab -->
+                    </div>
+                </div>
+            </div>
+            <!-- Products tab & slick -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

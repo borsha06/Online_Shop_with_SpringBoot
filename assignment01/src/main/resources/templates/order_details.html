@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <div th:replace="fragments/header :: imports"></div>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div>
+    <div>
+        <div>
+
+        </div>
+    </div>
+</div>
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <!-- Register -->
+            <div class="col-md-12">
+                <div class="row">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="orderItem, iter : ${order.orderItems}">
+                            <th scope="row" th:text="${iter.index + 1}"></th>
+                            <td><img alt="" class="product-img-height"
+                                     th:src="${orderItem.orderItemBeverage.beveragePic}"/></td>
+                            <td th:text="${orderItem.orderItemBeverage.name}"></td>
+                            <td th:text="${orderItem.quantity}"></td>
+                            <td th:text="${orderItem.orderItemPrice}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Register -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+</body>
+</html>

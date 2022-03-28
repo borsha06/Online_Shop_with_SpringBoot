@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <div th:replace="fragments/header :: imports"></div>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div>
+    <div>
+        <div>
+
+        </div>
+    </div>
+</div>
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <!-- Register -->
+            <div class="col-md-8">
+                <div class="row">
+                    <form class="form-horizontal" method="POST" th:action="@{/register}"
+                          th:object="${registrationForm}">
+
+                        <div class="form-group col-md-8">
+                            <label class="control-label">Full Name</label>
+                            <input class="form-control" name="fullName" placeholder="Full Name" th:field="*{fullName}"
+                                   type="text"/>
+                            <span class="text-danger" th:errors="*{fullName}"
+                                  th:if="${#fields.hasErrors('fullName')}"></span>
+                            <br/>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label class="control-label">Email address</label>
+                            <input class="form-control" name="email" placeholder="Enter email" th:field="*{email}"
+                                   type="email"/>
+                            <span class="text-danger" th:errors="*{email}" th:if="${#fields.hasErrors('email')}"></span>
+                            <br/>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label class="control-label">Password</label>
+                            <input class="form-control" name="password" placeholder="Enter Password" th:field="*{password}"
+                                   type="password"/>
+                            <span class="text-danger" th:errors="*{password}"
+                                  th:if="${#fields.hasErrors('password')}"></span>
+                            <br/>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label class="control-label">Retype Password</label>
+                            <input class="form-control" name="password" placeholder="Enter Password" th:field="*{retypePassword}"
+                                   type="password"/>
+                            <span class="text-danger" th:errors="*{retypePassword}"
+                                  th:if="${#fields.hasErrors('retypePassword')}"></span>
+                            <br/>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label class="control-label">Street</label>
+                            <input class="form-control" name="street" placeholder="Street Name" th:field="*{street}"
+                                   type="text"/>
+                            <span class="text-danger" th:errors="*{street}"
+                                  th:if="${#fields.hasErrors('street')}"></span>
+                            <br/>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label class="control-label">House Number</label>
+                            <input class="form-control" name="houseNumber" placeholder="House Number" th:field="*{houseNumber}"
+                                   type="text"/>
+                            <span class="text-danger" th:errors="*{houseNumber}"
+                                  th:if="${#fields.hasErrors('houseNumber')}"></span>
+                            <br/>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label class="control-label">Postal Code</label>
+                            <input class="form-control" name="postalCode" placeholder="Postal Code" th:field="*{postalCode}"
+                                   type="text"/>
+                            <span class="text-danger" th:errors="*{postalCode}"
+                                  th:if="${#fields.hasErrors('postalCode')}"></span>
+                            <br/>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label class="control-label">City</label>
+                            <input class="form-control" name="city" placeholder="City" th:field="*{city}" type="text"/>
+                            <span class="text-danger" th:errors="*{city}" th:if="${#fields.hasErrors('city')}"></span>
+                            <br/>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label class="control-label">State</label>
+                            <input class="form-control" name="state" placeholder="State" th:field="*{state}"
+                                   type="text"/>
+                            <span class="text-danger" th:errors="*{state}" th:if="${#fields.hasErrors('state')}"></span>
+                            <br/>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <button class="btn btn-primary" type="submit">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Register -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+</body>
+</html>

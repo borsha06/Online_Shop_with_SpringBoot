@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <div th:replace="fragments/header :: imports"></div>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div>
+    <div>
+        <div>
+
+        </div>
+    </div>
+</div>
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <!-- Register -->
+            <div class="col-md-12">
+                <div class="row">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Street</th>
+                            <th scope="col">House Number</th>
+                            <th scope="col">City</th>
+                            <th scope="col">State</th>
+                            <th scope="col">Orders</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="user : ${users}">
+                            <td th:text="${user.fullName}"></td>
+                            <td th:text="${user.email}"></td>
+                            <td th:text="${user.address.street}"></td>
+                            <td th:text="${user.address.houseNumber}"></td>
+                            <td th:text="${user.address.city}"></td>
+                            <td th:text="${user.address.state}"></td>
+                            <td><a th:href="@{/users/{userId}/orders(userId=${user.userId})}">Orders</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+            <!-- Register -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+</body>
+</html>

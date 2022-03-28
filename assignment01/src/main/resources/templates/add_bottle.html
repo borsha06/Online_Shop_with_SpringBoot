@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="fragments/header :: imports"></div>
+
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div class="section">
+
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <!-- Register -->
+            <div class="col-md-8">
+                <div class="row">
+                    <form class="form-horizontal" method="POST" th:action="@{/bottles/add}"
+                          th:object="${addBottleForm}" enctype="multipart/form-data">
+
+                        <div class="form-group col-md-8">
+                            <label class="control-label">Beverage Name</label>
+                            <input class="form-control" name="name" placeholder="Enter Beverage Name" th:field="*{name}"
+                                   type="text"/>
+                            <span class="text-danger" th:errors="*{name}" th:if="${#fields.hasErrors('name')}"></span>
+                            <br/>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label class="control-label">Beverage Image</label>
+                            <input class="form-control" name="image" placeholder="Upload an image"
+                                   th:field="*{image}" type="file" accept="image/jpeg, image/png" required>
+                            <span class="text-danger" th:errors="*{image}"
+                                  th:if="${#fields.hasErrors('image')}"></span>
+                            <br/>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label class="control-label">Beverage Price</label>
+                            <input class="form-control" name="beveragePrice" placeholder="Enter Beverage Price"
+                                   th:field="*{beveragePrice}" type="number" step="0.01"/>
+                            <span class="text-danger" th:errors="*{beveragePrice}"
+                                  th:if="${#fields.hasErrors('beveragePrice')}"></span>
+                            <br/>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label class="control-label">Alcohol Percent</label>
+                            <input class="form-control" name="alcoholPercent" placeholder="Enter Alcohol Percent"
+                                   th:field="*{alcoholPercent}" type="number" step="0.01"/>
+                            <span class="text-danger" th:errors="*{alcoholPercent}"
+                                  th:if="${#fields.hasErrors('alcoholPercent')}"></span>
+                            <br/>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label class="control-label">Volume</label>
+                            <input class="form-control" name="volume" placeholder="Enter Volume" th:field="*{volume}"
+                                   type="number" step="0.01"/>
+                            <span class="text-danger" th:errors="*{volume}"
+                                  th:if="${#fields.hasErrors('volume')}"></span>
+                            <br/>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label class="control-label">Supplier</label>
+                            <input class="form-control" name="supplier" placeholder="Enter Supplier"
+                                   th:field="*{supplier}" type="text"/>
+                            <span class="text-danger" th:errors="*{supplier}"
+                                  th:if="${#fields.hasErrors('supplier')}"></span>
+                            <br/>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label class="control-label">In Stock</label>
+                            <input class="form-control" name="bottleInStock" placeholder="Enter Bottle in Stock"
+                                   th:field="*{bottleInStock}" type="number"/>
+                            <span class="text-danger" th:errors="*{bottleInStock}"
+                                  th:if="${#fields.hasErrors('bottleInStock')}"></span>
+                            <br/>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <button class="btn btn-primary" type="submit">Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Register -->
+        </div>
+        <!-- /row -->
+    </div>
+</div>
+
+
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

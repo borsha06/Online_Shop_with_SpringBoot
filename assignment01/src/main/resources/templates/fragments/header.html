@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="imports">
+    <meta charset="UTF-8">
+    <title>Assignment 01</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet"/>
+
+    <!-- Bootstrap -->
+    <!--<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css"/>-->
+    <link rel="stylesheet" href="https://storage.googleapis.com/assignment01-339817.appspot.com/static/css/bootstrap.min.css" type="text/css"/>
+
+    <!-- Slick -->
+    <!--<link rel="stylesheet" th:href="@{/css/slick.css}" type="text/css"/>-->
+    <link rel="stylesheet" href="https://storage.googleapis.com/assignment01-339817.appspot.com/static/css/slick.css" type="text/css"/>
+    <!--<link rel="stylesheet" th:href="@{/css/slick-theme.css}" type="text/css"/>-->
+    <link rel="stylesheet" href="https://storage.googleapis.com/assignment01-339817.appspot.com/static/css/slick-theme.css" type="text/css"/>
+
+    <!-- nouislider -->
+    <!--<link rel="stylesheet" th:href="@{/css/nouislider.min.css}" type="text/css"/>-->
+    <link rel="stylesheet" href="https://storage.googleapis.com/assignment01-339817.appspot.com/static/css/nouislider.min.css" type="text/css"/>
+
+    <!-- Font Awesome Icon -->
+    <!--<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" type="text/css"/>-->
+    <link rel="stylesheet" href="https://storage.googleapis.com/assignment01-339817.appspot.com/static/css/font-awesome.min.css" type="text/css"/>
+
+    <!-- Custom stlylesheet -->
+    <!--<link rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>-->
+    <link rel="stylesheet" href="https://storage.googleapis.com/assignment01-339817.appspot.com/static/css/style.css" type="text/css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- jQuery Plugins -->
+    <!--<script defer th:src="@{/js/jquery.min.js}" type="text/javascript"></script>-->
+    <script defer src="https://storage.googleapis.com/assignment01-339817.appspot.com/static/js/jquery.min.js" type="text/javascript"></script>
+    <!--<script defer th:src="@{/js/bootstrap.min.js}" type="text/javascript"></script>-->
+    <script defer src="https://storage.googleapis.com/assignment01-339817.appspot.com/static/js/bootstrap.min.js" type="text/javascript"></script>
+    <!--<script defer th:src="@{/js/slick.min.js}" type="text/javascript"></script>-->
+    <script defer src="https://storage.googleapis.com/assignment01-339817.appspot.com/static/js/slick.min.js" type="text/javascript"></script>
+    <!--<script defer th:src="@{/js/nouislider.min.js}" type="text/javascript"></script>-->
+    <script defer src="https://storage.googleapis.com/assignment01-339817.appspot.com/static/js/nouislider.min.js" type="text/javascript"></script>
+    <!--<script defer th:src="@{/js/jquery.zoom.min.js}" type="text/javascript"></script>-->
+    <script defer src="https://storage.googleapis.com/assignment01-339817.appspot.com/static/js/jquery.zoom.min.js" type="text/javascript"></script>
+    <!--<script defer th:src="@{/js/main.js}" type="text/javascript"></script>-->
+    <script defer src="https://storage.googleapis.com/assignment01-339817.appspot.com/static/js/main.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+<!-- HEADER -->
+<header th:fragment="header">
+    <!-- MAIN HEADER -->
+    <div id="header">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- LOGO -->
+                <div class="col-md-3">
+                    <div class="header-logo">
+                        <a class="logo" href="#">
+                            <img alt="" th:src="@{/images/logo.png}">
+                        </a>
+                    </div>
+                </div>
+                <!-- /LOGO -->
+
+                <!-- SEARCH BAR -->
+                <div class="col-md-5">
+                    <div class="header-search">
+                        <form>
+                            <input class="input" placeholder="Search here"/>
+                            <button class="search-btn">Search</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- /SEARCH BAR -->
+
+                <!-- ACCOUNT -->
+                <div class="col-md-4 clearfix">
+                    <div class="header-ctn">
+                        <!-- Cart -->
+                        <div class="dropdown">
+                            <a th:href="@{/cart}">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>Your Cart</span>
+                            </a>
+                        </div>
+                        <!-- /Cart -->
+
+                        <!-- Login -->
+                        <div sec:authorize="isAnonymous()">
+                            <a th:href="@{/login}">
+                                <i class="fa fa-sign-in"></i>
+                                <span>Login</span>
+                            </a>
+                        </div>
+                        <!-- Login -->
+
+                        <!-- Register -->
+                        <div sec:authorize="isAnonymous()">
+                            <a th:href="@{/register}">
+                                <i class="fa fa-user"></i>
+                                <span>Register</span>
+                            </a>
+                        </div>
+                        <!-- Register -->
+
+                        <!-- Logout -->
+                        <div sec:authorize="isAuthenticated()">
+                            <a th:href="@{/logout}">
+                                <i class="fa fa-sign-out"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                        <!-- Logout -->
+
+                    </div>
+                </div>
+                <!-- /ACCOUNT -->
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+    </div>
+    <!-- /MAIN HEADER -->
+</header>
+<!-- /HEADER -->
+</body>
+
+</html>
+
