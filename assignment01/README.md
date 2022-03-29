@@ -30,14 +30,3 @@ These additional references should also help you:
 
 * [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
 
-### Google Cloud SQL Managed Postgresql
-Login to Google Cloud SQL and open cloud shell. <br>
-Connect to database - `gcloud sql connect assignment01-db --user=postgres`.
-If prompt for authorize click Authorize. <br>
-When prompted for password, enter - `64Jk3j1fdkGuJN4d`
-as password.
-<br> <br>
-Database Name: prod-db <br>
-Username: postgres <br>
-Password: 64Jk3j1fdkGuJN4d <br>
-Public IP: 35.242.192.31
