@@ -30,6 +30,4 @@ These additional references should also help you:
 
 * [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
 
-### Google Cloud Functions
-**OrderBillPdfGeneratorFunction** Deploy command - `gcloud functions deploy OrderBillPdfGeneratorFunction --entry-point=com.dsam.assignment02.functions.OrderBillPdfGeneratorFunction --region=europe-west3 --allow-unauthenticated --runtime=java11 --trigger-topic=bill-pdf-generate --memory=512MB --verbosity=debug` <br>
-**OrderEmailSenderFunction** Deploy command - `gcloud functions deploy OrderEmailSenderFunction --entry-point=com.dsam.assignment02.functions.OrderEmailSenderFunction --region=europe-west3 --allow-unauthenticated --runtime=java11 --trigger-topic=email-sender --memory=512MB --verbosity=debug`
+
